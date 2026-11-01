@@ -1,0 +1,16 @@
+{
+  "name": "saurashtra-toolkit",
+  "version": "1.0.0",
+  "description": "Keyboard, transliteration, dictionary and word lookup for the Saurashtra language (Latin, Saurashtra script, Tamil). Runs in the browser; deploys to GitHub Pages.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test",
+    "build:data": "node scripts/build-dictionary.mjs",
+    "check:data": "node scripts/build-dictionary.mjs --check",
+    "build": "node scripts/build-dictionary.mjs && node scripts/build-site.mjs"
+  }
+}

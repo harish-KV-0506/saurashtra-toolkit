@@ -1,0 +1,266 @@
+{
+ "generated": "2026-11-01",
+ "count": 16,
+ "entries": [
+  {
+   "id": 1,
+   "sa": "ꢨꢵꢦꢵ",
+   "latin": "baapaa",
+   "rom": "baapaa",
+   "en": [
+    "father"
+   ],
+   "ta": [
+    "அப்பா"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 2,
+   "sa": "ꢨꢾꢥ꣄",
+   "latin": "ben",
+   "rom": "ben",
+   "en": [
+    "sister"
+   ],
+   "ta": [
+    "சகோதரி"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 3,
+   "sa": "ꢩꢵꢄ",
+   "latin": "bhaai",
+   "rom": "bhaai",
+   "en": [
+    "brother"
+   ],
+   "ta": [
+    "சகோதரன்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 4,
+   "sa": "ꢩꢵꢡ꣄",
+   "latin": "bhaat",
+   "rom": "bhaat",
+   "en": [
+    "cooked rice"
+   ],
+   "ta": [
+    "சோறு"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 5,
+   "sa": "ꢗꢵꢥ꣄ꢣ꣄",
+   "latin": "chaand",
+   "rom": "chaand",
+   "en": [
+    "moon"
+   ],
+   "ta": [
+    "நிலா",
+    "சந்திரன்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 6,
+   "sa": "ꢤꢥ꣄ꢫꢮꢵꢣ꣄",
+   "latin": "dhanyavaad",
+   "rom": "dhanyavaad",
+   "en": [
+    "thank you"
+   ],
+   "ta": [
+    "நன்றி"
+   ],
+   "pos": "phrase",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 7,
+   "sa": "ꢤꢹꢤ꣄",
+   "latin": "dhuudh",
+   "rom": "dhuudh",
+   "en": [
+    "milk"
+   ],
+   "ta": [
+    "பால்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 8,
+   "sa": "ꢕꢬ꣄",
+   "latin": "ghar",
+   "rom": "ghar",
+   "en": [
+    "house",
+    "home"
+   ],
+   "ta": [
+    "வீடு"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 9,
+   "sa": "ꢪꢵ",
+   "latin": "maa",
+   "rom": "maa",
+   "en": [
+    "mother"
+   ],
+   "ta": [
+    "அம்மா"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 10,
+   "sa": "ꢪꢶꢡ꣄ꢬ",
+   "latin": "mitra",
+   "rom": "mitra",
+   "en": [
+    "friend"
+   ],
+   "ta": [
+    "நண்பன்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 11,
+   "sa": "ꢥꢵꢪ꣄",
+   "latin": "naam",
+   "rom": "naam",
+   "en": [
+    "name"
+   ],
+   "ta": [
+    "பெயர்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 12,
+   "sa": "ꢥꢪꢱ꣄ꢒꢵꢬ",
+   "latin": "namaskaara",
+   "rom": "namaskaara",
+   "en": [
+    "hello",
+    "greeting"
+   ],
+   "ta": [
+    "வணக்கம்"
+   ],
+   "pos": "phrase",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder from shared Indo-Aryan vocabulary. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 13,
+   "sa": "ꢦꢵꢥꢶ",
+   "latin": "paani",
+   "rom": "paani",
+   "en": [
+    "water"
+   ],
+   "ta": [
+    "தண்ணீர்",
+    "நீர்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 14,
+   "sa": "ꢧꢹꢭ꣄",
+   "latin": "phuul",
+   "rom": "phuul",
+   "en": [
+    "flower"
+   ],
+   "ta": [
+    "பூ"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 15,
+   "sa": "ꢦꢸꢱ꣄ꢡꢒ꣄",
+   "latin": "pustak",
+   "rom": "pustak",
+   "en": [
+    "book"
+   ],
+   "ta": [
+    "புத்தகம்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  },
+  {
+   "id": 16,
+   "sa": "ꢱꢸꢬꢙ꣄",
+   "latin": "suraj",
+   "rom": "suraj",
+   "en": [
+    "sun"
+   ],
+   "ta": [
+    "சூரியன்"
+   ],
+   "pos": "noun",
+   "status": "draft",
+   "contributor": "seed",
+   "notes": "Placeholder. Replace with the verified Saurashtra form."
+  }
+ ]
+}

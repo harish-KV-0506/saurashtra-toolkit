@@ -1,0 +1,16 @@
+name: Report a bug
+description: Something on the website does not work
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you type or tap, what did you expect, what did you get?
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      description: For example, Android phone with Chrome.

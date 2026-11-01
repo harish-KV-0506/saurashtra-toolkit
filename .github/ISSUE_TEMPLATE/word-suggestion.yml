@@ -1,0 +1,50 @@
+name: Suggest a word
+description: Add a new Saurashtra word to the dictionary
+title: "New word: "
+labels: ["dictionary", "new-word"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you! Please add only words you are confident about. If you are unsure, say so in the notes.
+  - type: input
+    id: word
+    attributes:
+      label: Saurashtra word, in Latin letters
+      description: "Use T D N L Sh for retroflex letters, aa ii uu for long vowels, for example paani."
+    validations:
+      required: true
+  - type: input
+    id: script
+    attributes:
+      label: Saurashtra script (optional)
+      description: If you can type it, paste the word in Saurashtra script too, so we can check the spelling.
+  - type: input
+    id: english
+    attributes:
+      label: Meaning in English
+    validations:
+      required: true
+  - type: input
+    id: tamil
+    attributes:
+      label: Meaning in Tamil
+  - type: dropdown
+    id: pos
+    attributes:
+      label: Type of word
+      options: [noun, verb, adjective, adverb, pronoun, numeral, phrase, other]
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Where the word is used (family, village, community), how sure you are, an example sentence.
+  - type: checkboxes
+    id: licence
+    attributes:
+      label: Licence
+      options:
+        - label: I agree that this contribution is shared under CC BY-SA 4.0, like the rest of the dictionary.
+          required: true

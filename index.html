@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Saurashtra Toolkit</title>
+  <meta name="description" content="Free keyboard, transliteration, dictionary and word lookup for the Saurashtra language. Type Saurashtra script, convert between Latin, Saurashtra and Tamil, and search words. Works offline.">
+  <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1a22" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Noto+Sans+Saurashtra&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try { var t = localStorage.getItem('sk-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14b8a6"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>
+        <rect width="64" height="64" rx="16" fill="url(#lg)"/>
+        <path d="M13 19h22a6 6 0 0 1 6 6v10a6 6 0 0 1-6 6h-11l-7 6v-6h-4a6 6 0 0 1-6-6V25a6 6 0 0 1 6-6z" fill="#fff" opacity=".55"/>
+        <path d="M29 29h22a6 6 0 0 1 6 6v10a6 6 0 0 1-6 6h-2v6l-7-6H29a6 6 0 0 1-6-6V35a6 6 0 0 1 6-6z" fill="#fff"/>
+        <circle cx="36" cy="40" r="1.8" fill="#0f3b5f"/><circle cx="44" cy="40" r="1.8" fill="#0f3b5f"/>
+        <path d="M37 44.5q3 3 6 0" stroke="#0f3b5f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h1>Saurashtra Toolkit</h1>
+        <p class="tagline"><span id="hero-script" class="script" lang="saz" aria-hidden="true"></span> Type, convert and look up words</p>
+      </div>
+    </div>
+    <button id="theme-btn" class="icon-btn" type="button" aria-label="Switch between light and dark theme" title="Light / dark">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.5 0-.9-.1-1.3A6 6 0 0 1 13.3 3.1 9 9 0 0 0 12 3z"/></svg>
+    </button>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Tools">
+    <button role="tab" id="tab-type"    aria-controls="panel-type"    data-tab="type">Type</button>
+    <button role="tab" id="tab-convert" aria-controls="panel-convert" data-tab="convert">Convert</button>
+    <button role="tab" id="tab-dict"    aria-controls="panel-dict"    data-tab="dict">Dictionary</button>
+    <button role="tab" id="tab-lookup"  aria-controls="panel-lookup"  data-tab="lookup">Lookup</button>
+    <button role="tab" id="tab-about"   aria-controls="panel-about"   data-tab="about">About</button>
+  </nav>
+
+  <main id="main">
+    <!-- TYPE -->
+    <section id="panel-type" role="tabpanel" aria-labelledby="tab-type" hidden>
+      <div class="card">
+        <div class="opts">
+          <label class="check"><input type="checkbox" id="opt-phonetic" checked> Type with Latin letters</label>
+          <label class="check"><input type="checkbox" id="opt-precise" checked> Capitals are retroflex (T D N L Sh)</label>
+          <label class="check"><input type="checkbox" id="opt-digits" checked> Saurashtra digits</label>
+        </div>
+        <label for="type-out" class="sr-only">Saurashtra text</label>
+        <textarea id="type-out" class="script big" lang="saz" rows="5" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Type here, for example: kaiso asa"></textarea>
+        <p id="type-hint" class="hint"></p>
+        <div class="row">
+          <button class="btn primary" id="btn-copy-type" type="button">Copy</button>
+          <button class="btn" id="btn-bksp" type="button" aria-label="Delete the last character">⌫ Delete</button>
+          <button class="btn ghost" id="btn-clear-type" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>On-screen keyboard</h2>
+        <p class="hint">Tap a letter to add it. Small Latin letters show what to type on a normal keyboard.</p>
+        <div id="keyboard" class="keyboard"></div>
+      </div>
+    </section>
+
+    <!-- CONVERT -->
+    <section id="panel-convert" role="tabpanel" aria-labelledby="tab-convert" hidden>
+      <div class="card">
+        <div class="conv-head">
+          <label class="field">From
+            <select id="cv-from"><option value="latin">Latin letters</option><option value="saurashtra">Saurashtra script</option><option value="tamil">Tamil script</option></select>
+          </label>
+          <button class="icon-btn swap" id="cv-swap" type="button" aria-label="Swap the two languages" title="Swap">⇄</button>
+          <label class="field">To
+            <select id="cv-to"><option value="saurashtra">Saurashtra script</option><option value="latin">Latin letters</option><option value="tamil">Tamil script</option></select>
+          </label>
+        </div>
+        <div class="conv-body">
+          <div>
+            <label for="cv-in" class="sr-only">Text to convert</label>
+            <textarea id="cv-in" rows="6" spellcheck="false" placeholder="Type or paste text"></textarea>
+          </div>
+          <div class="out-wrap">
+            <label for="cv-out" class="sr-only">Converted text</label>
+            <textarea id="cv-out" rows="6" readonly lang="saz" class="script" placeholder="The result appears here"></textarea>
+            <button class="btn primary copy" id="cv-copy" type="button">Copy</button>
+          </div>
+        </div>
+        <div class="opts">
+          <label class="check" id="wrap-precise"><input type="checkbox" id="cv-precise"> Capitals are retroflex (T D N L Sh)</label>
+          <label class="check" id="wrap-digits"><input type="checkbox" id="cv-digits" checked> Saurashtra digits</label>
+          <label class="field inline" id="wrap-style">Latin style
+            <select id="cv-style">
+              <option value="simple">Simple (kaiso, paani)</option>
+              <option value="ascii">Exact ASCII (Taa, N^a)</option>
+              <option value="iso">Scholarly (ṭā, ṅa)</option>
+            </select>
+          </label>
+        </div>
+        <p id="cv-detect" class="notice" hidden></p>
+        <ul id="cv-notes" class="notes"></ul>
+        <div class="chips" aria-label="Examples">
+          <span>Try:</span>
+          <button class="chip" type="button" data-example="kaiso">kaiso</button>
+          <button class="chip" type="button" data-example="paani">paani</button>
+          <button class="chip" type="button" data-example="namaskaara">namaskaara</button>
+          <button class="chip" type="button" data-example="2026">2026</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DICTIONARY -->
+    <section id="panel-dict" role="tabpanel" aria-labelledby="tab-dict" hidden>
+      <div class="card">
+        <div class="search-row">
+          <label for="dict-q" class="sr-only">Search the dictionary</label>
+          <input id="dict-q" type="search" placeholder="Search in Saurashtra, Latin, Tamil or English" autocomplete="off" spellcheck="false">
+          <label class="sr-only" for="dict-pos">Part of speech</label>
+          <select id="dict-pos"><option value="">All types</option></select>
+          <label class="sr-only" for="dict-status">Status</label>
+          <select id="dict-status"><option value="">Any status</option><option value="verified">Verified</option><option value="draft">Draft</option></select>
+        </div>
+        <p id="dict-banner" class="notice" hidden></p>
+        <p id="dict-count" class="hint" aria-live="polite"></p>
+        <div id="dict-list" class="entries"></div>
+        <p class="hint">Missing a word or found a mistake? <a id="link-suggest" href="#" target="_blank" rel="noopener">Suggest a word on GitHub</a>.</p>
+      </div>
+    </section>
+
+    <!-- LOOKUP -->
+    <section id="panel-lookup" role="tabpanel" aria-labelledby="tab-lookup" hidden>
+      <div class="card">
+        <div class="seg" role="group" aria-label="Direction">
+          <button type="button" data-dir="ta-sa" aria-pressed="true">Tamil → Saurashtra</button>
+          <button type="button" data-dir="sa-ta" aria-pressed="false">Saurashtra → Tamil</button>
+        </div>
+        <label for="lk-q" class="sr-only">Word to look up</label>
+        <input id="lk-q" type="search" class="lk-input" autocomplete="off" spellcheck="false" placeholder="Type a Tamil or English word">
+        <div id="lk-results" class="entries" aria-live="polite"></div>
+        <div id="lk-fallback" class="card inner" hidden></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="panel-about" role="tabpanel" aria-labelledby="tab-about" hidden>
+      <div class="card prose">
+        <h2>What this is</h2>
+        <p>Saurashtra is a small community language with very little software support. This toolkit gives you a keyboard, a converter between Latin letters, Saurashtra script and Tamil script, a searchable dictionary and a simple Tamil ↔ Saurashtra word lookup. It is free, open source and works offline once loaded.</p>
+
+        <h2>Typing guide</h2>
+        <table class="guide">
+          <thead><tr><th>Type</th><th>Get</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><code>ka kaa ki kii ku kuu ke kee kai ko koo kau</code></td><td class="script" lang="saz" id="g-vowels"></td><td>A vowel after a consonant becomes a vowel sign. <code>a</code> is built in.</td></tr>
+            <tr><td><code>k</code> on its own</td><td class="script" lang="saz" id="g-virama"></td><td>A consonant with no vowel gets a virama.</td></tr>
+            <tr><td><code>kh gh chh jh th dh ph bh</code></td><td class="script" lang="saz" id="g-asp"></td><td>Aspirated letters.</td></tr>
+            <tr><td><code>T Th D Dh N L Sh</code></td><td class="script" lang="saz" id="g-retro"></td><td>Retroflex letters. Turn on “Capitals are retroflex”, or type <code>.t .th .d .dh .n .l .s</code> or <code>ṭ ḍ ṇ ḷ ṣ</code>.</td></tr>
+            <tr><td><code>N^ ~n</code> or <code>ṅ ñ</code></td><td class="script" lang="saz" id="g-nasal"></td><td>The letters ṅ and ñ.</td></tr>
+            <tr><td><code>.m .h m~</code></td><td class="script" lang="saz" id="g-marks"></td><td>Anusvara, visarga, candrabindu.</td></tr>
+            <tr><td><code>_</code></td><td class="script" lang="saz" id="g-break"></td><td>Splits letters that would otherwise join: <code>k_ha</code> is k + ha, <code>ka_i</code> is ka + i.</td></tr>
+            <tr><td><code>0–9</code> and <code>|</code></td><td class="script" lang="saz" id="g-digits"></td><td>Saurashtra digits and the danda.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Good to know</h2>
+        <ul>
+          <li>Converting to Tamil script loses detail: Tamil has no separate letters for k / kh / g / gh. The Convert tab tells you when this happens.</li>
+          <li>Typing directly in the Type tab works best with a computer keyboard. On a phone, use the on-screen keys or the Convert tab, because predictive keyboards interfere.</li>
+          <li>You need a font that includes the Saurashtra block (Noto Sans Saurashtra). The site loads it automatically.</li>
+          <li>Dictionary entries marked <em>draft</em> have not yet been confirmed by a Saurashtra speaker.</li>
+        </ul>
+
+        <h2>Help improve it</h2>
+        <p>The dictionary is a plain spreadsheet (CSV) in the project, and anyone can add words or fix mistakes. <a id="link-repo" href="#" target="_blank" rel="noopener">Open the project on GitHub</a> · <a id="link-issues" href="#" target="_blank" rel="noopener">Suggest a word or report a bug</a></p>
+
+        <h2>Privacy and licence</h2>
+        <p>Everything runs in your browser. Nothing you type is sent anywhere. Code is MIT licensed; dictionary data is CC BY-SA 4.0.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Made with care for the Saurashtra community · <a id="link-repo-foot" href="#" target="_blank" rel="noopener">Source on GitHub</a></p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="notice" style="margin:1rem">This toolkit needs JavaScript. Nothing is sent to a server; it all runs in your browser.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+name: Correct a word
+description: A spelling, meaning or script mistake in the dictionary
+title: "Correction: "
+labels: ["dictionary", "correction"]
+body:
+  - type: input
+    id: word
+    attributes:
+      label: Which word?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What is wrong, and what should it be?
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: How sure are you?
+      options: ["I am a native speaker and I am sure", "I am fairly sure", "I am not sure, please check with others"]
